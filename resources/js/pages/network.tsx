@@ -8,17 +8,65 @@ type NodeInfo = {
   label?: string;
   fill?: string;
   size?: number;
+  data?: {
+    type?: string;
+  };
 };
 
-const nodes = [
-  { id: '1', label: 'Matthijs Hulshof', fill: 'aqua', size: 5},
-  { id: '2', label: 'Ids Osinga',fill: 'blue', size: 15 },
-  { id: '3', label: 'Koen Brouwer', fill: '#096c6c' },
-  { id: '4', label: 'Wess van Wijhe', fill: 'gold', size: 10},
-  { id: '5', label: 'Marco Hendriks', fill: '#000000' },
-  { id: '6', label: 'Vincent Bakker', fill: '#ff0000', size: 8 },
-  { id: '7', label: 'Jasper Werkman', fill: '#00ff00' },
-  { id: '8', label: 'Renzo Jutte', fill: '#0000ff', size: 1 },
+const nodes: NodeInfo[] = [
+  {
+    id: '1',
+    label: 'Matthijs Hulshof',
+    fill: 'aqua',
+    size: 5,
+    data: { type: 'Geitje' },
+  },
+  {
+    id: '2',
+    label: 'Ids Osinga',
+    fill: 'blue',
+    size: 15,
+    data: { type: 'Big' },
+  },
+  {
+    id: '3',
+    label: 'Koen Brouwer',
+    fill: '#096c6c',
+    data: { type: 'Geitje' },
+  },
+  {
+    id: '4',
+    label: 'Wess van Wijhe',
+    fill: 'gold',
+    size: 10,
+    data: { type: 'Big' },
+  },
+  {
+    id: '5',
+    label: 'Marco Hendriks',
+    fill: '#000000',
+    data: { type: 'Nerd' },
+  },
+  {
+    id: '6',
+    label: 'Vincent Bakker',
+    fill: '#ff0000',
+    size: 8,
+    data: { type: 'Gay'},
+  },
+  {
+    id: '7',
+    label: 'Jasper Werkman',
+    fill: '#00ff00',
+    data: { type: 'Nerd'},
+  },
+  {
+    id: '8',
+    label: 'Renzo Jutte',
+    fill: '#0000ff',
+    size: 1,
+    data: { type: 'Geitje' },
+  },
 ];
 
 const edges = [
@@ -59,6 +107,7 @@ export default function App() {
         edges={edges}
         cameraMode="rotate"
         theme={darkTheme}
+        clusterAttribute="type"
         onNodeClick={(node) => {
           const info: NodeInfo =
             nodes.find((n) => n.id === node.id) ?? {
@@ -74,6 +123,7 @@ export default function App() {
           <p><strong>Label:</strong> {selectedNode.label}</p>
           <p><strong>Fill:</strong> {selectedNode.fill}</p>
           <p><strong>Size:</strong> {selectedNode.size || 'default'}</p>
+          <p><strong>Type:</strong> {selectedNode.data?.type || 'N/A'}</p>
         </div>
       )}
     </>
