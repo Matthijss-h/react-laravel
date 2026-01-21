@@ -52,13 +52,13 @@ const nodes: NodeInfo[] = [
     label: 'Vincent Bakker',
     fill: '#ff0000',
     size: 8,
-    data: { type: 'MobileDev'},
+    data: { type: 'MobileDev' },
   },
   {
     id: '7',
     label: 'Jasper Werkman',
     fill: '#00ff00',
-    data: { type: 'Nerd'},
+    data: { type: 'Nerd' },
   },
   {
     id: '8',
@@ -85,6 +85,9 @@ const edges = [
   { id: 'e1-2', source: '1', target: '2' },
   { id: 'e7-2', source: '7', target: '2' },
   { id: 'e3-9', source: '3', target: '9' },
+  { id: 'e6-3', source: '6', target: '3' },
+
+
 ];
 
 export default function App() {
@@ -108,7 +111,7 @@ export default function App() {
           Home
         </Link>
       </div>
-      
+
       <GraphCanvas
         nodes={nodes}
         edges={edges}
@@ -116,17 +119,19 @@ export default function App() {
         theme={darkTheme}
         clusterAttribute="type"
         draggable
+
         onNodeClick={(node) => {
-          const info: NodeInfo =
-            nodes.find((n) => n.id === node.id) ?? {
-              id: node.id,
-              label: (node as any).label,
-            };
-          setSelectedNode(info);
+          const existingNode = nodes.find((n) => n.id === node.id)
+
+          const info: NodeInfo = existingNode ?? {
+            id: node.id,
+            label: node.label ?? String(node.id),
+          }
+          setSelectedNode(info)
         }}
       />
       {selectedNode && (
-        <div style={{position: 'fixed', top: '10px', right: '10px', background: '#333', color: '#fff', padding: '10px', borderRadius: '5px'}}>
+        <div style={{ position: 'fixed', top: '10px', right: '10px', background: '#333', color: '#fff', padding: '10px', borderRadius: '5px' }}>
           <p><strong>ID:</strong> {selectedNode.id}</p>
           <p><strong>Label:</strong> {selectedNode.label}</p>
           <p><strong>Fill:</strong> {selectedNode.fill}</p>
