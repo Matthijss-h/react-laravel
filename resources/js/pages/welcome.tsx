@@ -1,5 +1,4 @@
 import { Head, Link, usePage } from '@inertiajs/react';
-
 import { dashboard, login, register, network } from '@/routes';
 import { type SharedData } from '@/types';
 
@@ -45,6 +44,7 @@ export default function Welcome({
                                     Register
                                 </Link>
                             )}
+
                         </>
                     )}
                 </nav>
@@ -56,7 +56,8 @@ export default function Welcome({
                         className="inline-block rounded-sm border border-black bg-[#1b1b18] px-5 py-1.5 text-sm leading-normal text-white hover:border-black hover:bg-black dark:border-[#eeeeec] dark:bg-[#eeeeec] dark:text-[#1C1C1A] dark:hover:border-white dark:hover:bg-white">
                         Open Network
                     </Link>
-                {/* </main> */}
+                <img src="/nodes.png" alt="nodes" />     
+             {/* </main> */}
             </div>
         </>
     );
