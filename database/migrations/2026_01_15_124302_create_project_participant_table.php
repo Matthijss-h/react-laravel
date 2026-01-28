@@ -8,25 +8,17 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('project_participant', function (Blueprint $table) {
-            $table->foreignId('project_id')
-                ->constrained('projects')
-                ->cascadeOnUpdate()
-                ->cascadeOnDelete();
-
-            $table->foreignId('participant_id')
-                ->constrained('participants')
-                ->cascadeOnUpdate()
-                ->cascadeOnDelete();
-
-            $table->string('role')->nullable(); // trekker, partner, deelnemer, etc.
-
-            $table->primary(['project_id', 'participant_id']);
+        Schema::create('participant_project', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('participant_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('project_id')->constrained()->cascadeOnDelete();
+            $table->string('role')->nullable(); // 'Partner', 'Coördinator', etc.
+            $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('project_participant');
+        Schema::dropIfExists('participant_project');
     }
 };

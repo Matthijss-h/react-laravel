@@ -9,17 +9,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('participant_theme', function (Blueprint $table) {
-            $table->foreignId('participant_id')
-                ->constrained('participants')
-                ->cascadeOnUpdate()
-                ->cascadeOnDelete();
-
-            $table->foreignId('theme_id')
-                ->constrained('themes')
-                ->cascadeOnUpdate()
-                ->cascadeOnDelete();
-
-            $table->primary(['participant_id', 'theme_id']);
+            $table->id();
+            $table->foreignId('participant_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('theme_id')->constrained()->cascadeOnDelete();
+            $table->timestamps();
         });
     }
 
