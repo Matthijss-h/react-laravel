@@ -43,7 +43,7 @@ const nodes: NodeInfo[] = [
   },
   {
     id: '5',
-    label: 'Marco Hendriks',
+    label: 'Donald Trump',
     fill: '#000000',
     data: { type: 'Nerd' },
   },

@@ -1,6 +1,6 @@
 import { Head, Link, usePage } from '@inertiajs/react';
-
-import { dashboard, login, register, network } from '@/routes';
+import logo from '/public/logo.png';
+import { dashboard, login, register, network, home} from '@/routes';
 import { type SharedData } from '@/types';
 
 export default function Welcome({
@@ -20,8 +20,14 @@ export default function Welcome({
                     rel="stylesheet"
                 />
             </Head>
-            <header className="fixed top-0 right-0 z-50 p-6 text-sm not-has-[nav]:hidden">
-                <nav className="flex items-center gap-4">
+            <header className="fixed top-0 p-6 justify-between items-center w-full text-sm not-has-[nav]:hidden">
+                <nav className="flex justify-end">
+                <Link href={home()}>
+                    <img src={logo} alt="Your Company" className="absolute left-1 top-0 h-45" />
+                </Link>
+        
+        
+
                     {auth.user ? (
                         <Link
                             href={dashboard()}
@@ -33,14 +39,14 @@ export default function Welcome({
                         <>
                             <Link
                                 href={login()}
-                                className="inline-block rounded-sm border border-transparent px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#19140035] dark:text-[#EDEDEC] dark:hover:border-[#3E3E3A]"
+                                className="inline-block rounded-sm border border-transparent px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#19140035] dark:text-[#000000] dark:hover:border-[#3E3E3A]"
                             >
                                 Log in
                             </Link>
                             {canRegister && (
                                 <Link
                                     href={register()}
-                                    className="inline-block rounded-sm border border-[#19140035] px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#1915014a] dark:border-[#3E3E3A] dark:text-[#EDEDEC] dark:hover:border-[#62605b]"
+                                    className="inline-block rounded-sm border border-[#19140035] px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#1915014a] dark:border-[#3E3E3A] dark:text-[#000000] dark:hover:border-[#62605b]"
                                 >
                                     Registreren
                                 </Link>
@@ -48,15 +54,18 @@ export default function Welcome({
                         </>
                     )}
                 </nav>
+                {/* <div className="p-0">
+          <img src={logo} alt="Your Company" className="h-50" />
+        </div> */}
             </header>
-            <div className="flex w-full items-center min-h-screen justify-center">
-                {/* <main className="flex w-full max-w-[335px] flex-col-reverse lg:max-w-4xl lg:flex-row"> */}
+            <div className="flex w-full items-center min-h-screen bg-background justify-center">
+                <main className="flex w-full justify-center lg:max-w-4xl lg:flex-row">
                     <Link
                         href={network()}
-                        className="inline-block rounded-sm border border-black bg-[#1b1b18] px-5 py-1.5 text-sm leading-normal text-white hover:border-black hover:bg-black dark:border-[#eeeeec] dark:bg-[#eeeeec] dark:text-[#1C1C1A] dark:hover:border-white dark:hover:bg-white">
+                        className="inline-block rounded-sm border border-[#19140035] px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#1915014a] dark:border-[#3E3E3A] dark:text-[#000000] dark:hover:border-[#000000]">
                         Open Network
                     </Link>
-                {/* </main> */}
+                </main>
             </div>
         </>
     );
