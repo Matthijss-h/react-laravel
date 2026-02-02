@@ -3,6 +3,7 @@ import logo from '/public/logo.png';
 import bubbles from '/public/bubbles.png';
 import { dashboard, login, register, network, home } from '@/routes';
 import { type SharedData } from '@/types';
+import { AiFillCaretDown } from "react-icons/ai";
 
 export default function Welcome({
     canRegister = true,
@@ -50,13 +51,23 @@ export default function Welcome({
   </nav>
 </header>
             <div className="flex w-full items-center min-h-screen bg-background justify-center">
-                <main className="flex w-full justify-center lg:max-w-4xl lg:flex-row">
-                <img src={bubbles} alt="Bubbles" className="absolute left-1 h-55" />
-                    <Link
-                        href={network()}
-                        className="inline-block rounded-sm border border-[#19140035] px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#1915014a] dark:border-[#3E3E3A] dark:text-[#000000] dark:hover:border-[#000000]">
-                        Open Network
-                    </Link>
+                <main className="flex w-full justify-center lg:max-w-4xl lg:flex-row">               
+                    <div className="flex flex-col lg:flex-row gap-8 items-center justify-center w-full">
+                      <img src={bubbles} alt="Bubbles" className="h-64 w-auto" />
+                      <div className="flex flex-col gap-4 bg-pink-700 p-8 rounded-lg h-64 w-80 justify-between">
+                        <div>
+                          <h1 className="text-2xl font-bold text-white">Grolloo Network</h1>
+                          <p className="text-white/90 mt-2">Verken alle networken van Grolloo!</p>
+                        </div>
+                        <AiFillCaretDown className="h-10 w-8 text-white" />
+                        
+                        {/* <Link
+                          href={network()}
+                          className="inline-block rounded-sm border border-white px-5 py-1.5 text-sm text-white hover:bg-white/10 transition w-fit">
+                          Open Network
+                        </Link> */}
+                      </div>
+                    </div>
                 </main>
             </div>
         </>
