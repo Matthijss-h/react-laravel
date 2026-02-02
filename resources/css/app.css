@@ -11,7 +11,7 @@
     --font-sans:
         'Instrument Sans', ui-sans-serif, system-ui, sans-serif,
         'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-        'Noto Color Emoji';
+        'Noto Color Emoji'; 
 }
 
 :root {
@@ -30,8 +30,8 @@
   --fg: #0c0c0c;
 
   --primary: #E1A07F;
-  --primary-fg: #020617;
-
+  --primary-fg: #33341C;
+  --primary-text: #E1A07F;
   --border: #000000;
 }
 
