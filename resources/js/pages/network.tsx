@@ -19,59 +19,59 @@ const nodes: NodeInfo[] = [
     label: 'Matthijs Hulshof',
     fill: 'aqua',
     size: 5,
-    data: { type: 'Geitje' },
+    data: { type: 'Groningen' },
   },
   {
     id: '2',
     label: 'Ids Osinga',
     fill: 'blue',
     size: 15,
-    data: { type: 'Big' },
+    data: { type: 'Friesland' },
   },
   {
     id: '3',
     label: 'Koen Brouwer',
     fill: '#096c6c',
-    data: { type: 'Geitje' },
+    data: { type: 'Friesland' },
   },
   {
     id: '4',
     label: 'Wess van Wijhe',
     fill: 'gold',
     size: 10,
-    data: { type: 'Big' },
+    data: { type: 'Drenthe' },
   },
   {
     id: '5',
-    label: 'Donald Trump',
+    label: 'Johan Strootman',
     fill: '#000000',
-    data: { type: 'Nerd' },
+    data: { type: 'Drenthe' },
   },
   {
     id: '6',
     label: 'Vincent Bakker',
     fill: '#ff0000',
     size: 8,
-    data: { type: 'MobileDev' },
+    data: { type: 'Groningen' },
   },
   {
     id: '7',
     label: 'Jasper Werkman',
     fill: '#00ff00',
-    data: { type: 'Nerd' },
+    data: { type: 'Groningen' },
   },
   {
     id: '8',
     label: 'Renzo Jutte',
     fill: '#0000ff',
     size: 1,
-    data: { type: 'Geitje' },
+    data: { type: 'Groningen' },
   },
   {
     id: '9',
-    label: 'punthenk',
+    label: 'Michael Nijenhuis',
     fill: '#ff3434',
-    data: { type: 'THE G.O.A.T.' },
+    data: { type: 'Friesland' },
   }
 ];
 
@@ -106,7 +106,7 @@ export default function App() {
       <div className="fixed top-4 left-4 z-10">
         <Link
           href={home()}
-          className="inline-block rounded-sm border border-[#19140035] px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#1915014a] dark:border-[#3E3E3A] dark:text-[#EDEDEC] dark:hover:border-[#62605b]"
+          className="rounded-md px-4 py-2 text-sm hover:bg-black/5 transition border"
         >
           Home
         </Link>
