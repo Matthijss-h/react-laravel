@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { GraphCanvas, darkTheme } from 'reagraph';
+import { GraphCanvas } from 'reagraph';
 import { Link, Head } from '@inertiajs/react';
 import { home } from '@/routes';
 
@@ -115,8 +115,6 @@ export default function App() {
       <GraphCanvas
         nodes={nodes}
         edges={edges}
-        // cameraMode="rotate"
-        theme={darkTheme}
         clusterAttribute="type"
         draggable
 
