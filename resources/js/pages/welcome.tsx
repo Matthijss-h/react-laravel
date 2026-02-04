@@ -1,7 +1,9 @@
 import { Head, Link, usePage } from '@inertiajs/react';
 import logo from '/public/logo.png';
-import { dashboard, login, register, network, home} from '@/routes';
+import bubbles from '/public/bubbles.png';
+import { dashboard, login, register, network, home } from '@/routes';
 import { type SharedData } from '@/types';
+import { AiFillCaretDown } from "react-icons/ai";
 
 export default function Welcome({
     canRegister = true,
@@ -14,59 +16,66 @@ export default function Welcome({
         <>
             <Head title="Welcome">
                 <link rel="preconnect" href="https://fonts.bunny.net" />
-
-                <link
-                    href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600"
-                    rel="stylesheet"
-                />
+                <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet" />
             </Head>
-            <header className="fixed top-0 p-6 justify-between items-center w-full text-sm not-has-[nav]:hidden">
-                <nav className="flex justify-end">
-                <Link href={home()}>
-                    <img src={logo} alt="Your Company" className="absolute left-1 top-0 h-45" />
-                </Link>
-        
-        
+               <header className="fixed top-0 w-full z-50 bg-white/80">
+                <nav className="relative flex items-center justify-between px-4 sm:px-6 py-3 max-w-7xl mx-auto h-16">  
+                <Link href={home()} className="absolute left-5 top-1 -translate-y-0.5">
+      <img src={logo} alt="Your Company" className="h-40 w-auto" />
+      </Link>
 
-                    {auth.user ? (
-                        <Link
-                            href={dashboard()}
-                            className="inline-block rounded-sm border border-[#19140035] px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#1915014a] dark:border-[#3E3E3A] dark:text-[#EDEDEC] dark:hover:border-[#62605b]"
-                        >
-                            Dashboard
-                        </Link>
-                    ) : (
-                        <>
-                            <Link
-                                href={login()}
-                                className="inline-block rounded-sm border border-transparent px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#19140035] dark:text-[#000000] dark:hover:border-[#3E3E3A]"
-                            >
-                                Log in
-                            </Link>
-                            {canRegister && (
-                                <Link
-                                    href={register()}
-                                    className="inline-block rounded-sm border border-[#19140035] px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#1915014a] dark:border-[#3E3E3A] dark:text-[#000000] dark:hover:border-[#62605b]"
-                                >
-                                    Registreren
-                                </Link>
-                            )}
-                        </>
-                    )}
-                </nav>
-                {/* <div className="p-0">
-          <img src={logo} alt="Your Company" className="h-50" />
-        </div> */}
-            </header>
+    <div className="ml-auto flex items-center gap-3">
+      {auth.user ? (
+        <Link
+          href={dashboard()}
+          className="rounded-md border px-4 py-2 text-sm hover:bg-black/5 transition">
+          Dashboard
+        </Link>
+    
+        ) : (
+
+        <>
+          <Link href={login()} className="rounded-md px-4 py-2 text-sm hover:bg-black/5 transition">
+            Log in
+          </Link>
+
+          {canRegister && (
+            <Link href={register()} className="rounded-md bg-[#E1A07F] px-7 py-3 text-sm hover:bg-[#d6906d] transition">
+              Registreren
+            </Link>
+          )}
+        </>
+      )}
+    </div>
+  </nav>
+</header>
             <div className="flex w-full items-center min-h-screen bg-background justify-center">
-                <main className="flex w-full justify-center lg:max-w-4xl lg:flex-row">
-                    <Link
-                        href={network()}
-                        className="inline-block rounded-sm border border-[#19140035] px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#1915014a] dark:border-[#3E3E3A] dark:text-[#000000] dark:hover:border-[#000000]">
-                        Open Network
-                    </Link>
+                <main className="flex w-full">               
+                    <div className="flex flex-col lg:flex-row gap-8 items-center justify-center w-full">
+                      <img src={bubbles} alt="Bubbles" className="h-90 w-auto" />
+                        <div className="flex flex-col gap-4 bg-[#33341C] p-6 sm:p-8 rounded-lg h-auto sm:h-64 flex-1 justify-center ml-auto">
+                          <div>
+                          <h1 className="text-3xl font-black text-[#E1A07F]">Grolloo Netwerk</h1>
+                          <p className="text-2xl font-semibold text-white mt-5">Verken alle netwerken van Grolloo!</p>
+                          </div>
+                          <AiFillCaretDown className="h-8 sm:h-10 w-6 sm:w-8 text-white" />
+                          
+                          {/* <Link
+                          href={network()}
+                          className="inline-block rounded-sm border border-white px-5 py-1.5 text-sm text-white hover:bg-white/10 transition w-fit">
+                          Open Network
+                          </Link> */}
+                          
+                        </div>
+                    </div>                         
                 </main>
             </div>
+            <section className="w-full text-start px-6 lg:px-30">
+             <h1 className="text-[#33341C] text-3xl font-bold">Grolloo Netwerken</h1>
+              {/* Grid with network cards in here */}
+            </section>
+
         </>
+        
     );
 }
