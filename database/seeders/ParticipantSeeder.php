@@ -50,10 +50,5 @@ class ParticipantSeeder extends Seeder
             'phone'               => null,
             'is_active'           => true,
         ]);
-        if (class_exists(\Database\Factories\ParticipantFactory::class)) {
-            Participant::factory()
-                ->count(10)
-                ->create();
-        }
     }
 }
